@@ -1,4 +1,4 @@
-# EZ Tables v0.2.0
+# EZ Tables v0.2.1
 
 ## Installation
 

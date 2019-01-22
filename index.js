@@ -43,7 +43,7 @@ Table.prototype.data = function () {
   };
   
   /** Find last container */
-  recusriveLastContainer(this);
+  recursiveLastContainer(this);
   
   /** Throw error if no container found */
   if ( !lastContainer )
@@ -146,7 +146,7 @@ Table.prototype.header = function () {
   };
   
   /** Find last container */
-  recusriveLastContainer(this);
+  recursiveLastContainer(this);
   
   /** Throw error if no container found */
   if ( !lastContainer )
@@ -180,7 +180,7 @@ Table.prototype.row = function () {
   };
   
   /** Find last container */
-  recusriveLastContainer(this);
+  recursiveLastContainer(this);
 
   /** Throw error if no container found */
   if ( !lastContainer )
