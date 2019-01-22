@@ -67,7 +67,7 @@ Table.prototype.deleteButton = function (val) {
   const anchor = new ezhtml.Anchor();
   
   /** Set anchor href to execute javascritp function deleteRow */
-  anchor.href(`javascript:deleteRow(\\'${val}\\')`);
+  anchor.href(`javascript:deleteRow("${val}")`);
   
   /** Create image */
   const image = new ezhtml.Image();
@@ -96,7 +96,7 @@ Table.prototype.editButton = function (val) {
   const anchor = new ezhtml.Anchor();
   
   /** Set anchor href to execute javascritp function editRow */
-  anchor.href(`javascript:editRow(\\'${val}\\')`);
+  anchor.href(`javascript:editRow("${val}")`);
   
   /** Create image */
   const image = new ezhtml.Image();
