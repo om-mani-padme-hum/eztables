@@ -28,11 +28,22 @@ Table.prototype.data = function () {
   
   let lastContainer = null;
   
-  /** Find last container to nest header in */
-  this.content().forEach((item) => {
+  /** Create helper method for finding last containe r*/
+  const recursiveLastContainer = (item) => {
     if ( item.constructor.name == `TableRow` )
       lastContainer = item;
-  });
+    
+    if ( typeof item.content !== `function` )
+      return;
+    
+    /** Find last container to nest header in */
+    item.content().forEach((childItem) => {
+      recursiveLastContainer(childItem);
+    });
+  };
+  
+  /** Find last container */
+  recusriveLastContainer(this);
   
   /** Throw error if no container found */
   if ( !lastContainer )
@@ -120,11 +131,22 @@ Table.prototype.header = function () {
   
   let lastContainer = null;
   
-  /** Find last container to nest header in */
-  this.content().forEach((item) => {
+  /** Create helper method for finding last containe r*/
+  const recursiveLastContainer = (item) => {
     if ( item.constructor.name == `TableRow` )
       lastContainer = item;
-  });
+    
+    if ( typeof item.content !== `function` )
+      return;
+    
+    /** Find last container to nest header in */
+    item.content().forEach((childItem) => {
+      recursiveLastContainer(childItem);
+    });
+  };
+  
+  /** Find last container */
+  recusriveLastContainer(this);
   
   /** Throw error if no container found */
   if ( !lastContainer )
@@ -143,12 +165,23 @@ Table.prototype.row = function () {
   
   let lastContainer = null;
   
-  /** Find last container to nest header in */
-  this.content().forEach((item) => {
+  /** Create helper method for finding last containe r*/
+  const recursiveLastContainer = (item) => {
     if ( item.constructor.name == `TableHead` || item.constructor.name == `TableBody` || item.constructor.name == `TableFooter` )
       lastContainer = item;
-  });
+    
+    if ( typeof item.content !== `function` )
+      return;
+    
+    /** Find last container to nest header in */
+    item.content().forEach((childItem) => {
+      recursiveLastContainer(childItem);
+    });
+  };
   
+  /** Find last container */
+  recusriveLastContainer(this);
+
   /** Throw error if no container found */
   if ( !lastContainer )
     throw new ReferenceError(`Table.row(): Table row must be nested inside table head, table body, or table footer, but none exists.`);
