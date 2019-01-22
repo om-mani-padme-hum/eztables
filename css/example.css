@@ -1,0 +1,27 @@
+table, th, td {
+  border-width: 2px;
+  border-style: ridge;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background-color: #446e9b;
+}
+
+td, th {
+  padding: 5px;
+  text-align: left;
+}
+
+.edit-button, .delete-button {
+  text-align: center;
+  width: 24px;
+}
+
+/*# sourceMappingURL=example.css.map */
