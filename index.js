@@ -30,13 +30,13 @@ Table.prototype.data = function () {
   
   /** Find last container to nest header in */
   this.content().forEach((item) => {
-    if ( item.constructor.name == `TableHead` || item.constructor.name == `TableBody` || item.constructor.name == `TableFooter` )
+    if ( item.constructor.name == `TableRow` )
       lastContainer = item;
   });
   
   /** Throw error if no container found */
   if ( !lastContainer )
-    throw new ReferenceError(`Table.data(): Table data must be nested inside table head, table body, or table footer, but none exists.`);
+    throw new ReferenceError(`Table.data(): Table data must be nested inside table row, but none exists.`);
   
   /** Add table data to last container */
   lastContainer.append(tableData);
@@ -122,13 +122,13 @@ Table.prototype.header = function () {
   
   /** Find last container to nest header in */
   this.content().forEach((item) => {
-    if ( item.constructor.name == `TableHead` || item.constructor.name == `TableBody` || item.constructor.name == `TableFooter` )
+    if ( item.constructor.name == `TableRow` )
       lastContainer = item;
   });
   
   /** Throw error if no container found */
   if ( !lastContainer )
-    throw new ReferenceError(`Table.header(): Table header must be nested inside table head, table body, or table footer, but none exists.`);
+    throw new ReferenceError(`Table.header(): Table header must be nested inside table row, but none exists.`);
   
   /** Add table header to last container */
   lastContainer.append(tableHeader);
@@ -141,8 +141,20 @@ Table.prototype.row = function () {
   /** Create table row */
   const tableRow = new ezhtml.TableRow();
   
+  let lastContainer = null;
+  
+  /** Find last container to nest header in */
+  this.content().forEach((item) => {
+    if ( item.constructor.name == `TableHead` || item.constructor.name == `TableBody` || item.constructor.name == `TableFooter` )
+      lastContainer = item;
+  });
+  
+  /** Throw error if no container found */
+  if ( !lastContainer )
+    throw new ReferenceError(`Table.row(): Table row must be nested inside table head, table body, or table footer, but none exists.`);
+  
   /** Add table row to table */
-  this.append(tableRow);
+  lastContainer.append(tableRow);
   
   /** Return table row for call chaining */
   return tableRow;
