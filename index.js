@@ -56,7 +56,7 @@ Table.prototype.data = function () {
   return tableData;
 };
 
-Table.prototype.deleteButton = function (id) {
+Table.prototype.deleteButton = function (val) {
   /** Create table data */
   const tableData = this.data();
   
@@ -67,7 +67,7 @@ Table.prototype.deleteButton = function (id) {
   const anchor = new ezhtml.Anchor();
   
   /** Set anchor href to execute javascritp function deleteRow */
-  anchor.href(`javascript:deleteRow(${id})`);
+  anchor.href(`javascript:deleteRow('${val}')`);
   
   /** Create image */
   const image = new ezhtml.Image();
@@ -85,7 +85,7 @@ Table.prototype.deleteButton = function (id) {
   return tableData;
 };
 
-Table.prototype.editButton = function (id) {
+Table.prototype.editButton = function (val) {
   /** Create table data */
   const tableData = this.data();
   
@@ -96,7 +96,7 @@ Table.prototype.editButton = function (id) {
   const anchor = new ezhtml.Anchor();
   
   /** Set anchor href to execute javascritp function editRow */
-  anchor.href(`javascript:editRow(${id})`);
+  anchor.href(`javascript:editRow('${val}')`);
   
   /** Create image */
   const image = new ezhtml.Image();
