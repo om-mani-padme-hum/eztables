@@ -10,13 +10,13 @@ app.get(`/`, (req, res) => {
   const table = new eztables.Table();
   
   table.head();
-  table.header().text(`Serial #`);
-  table.header().text(`Stock #`);
+  table.header().text(`Column 1`);
+  table.header().text(`Column 2`);
   table.header().text(`&nbsp;`);
   table.header().text(`&nbsp;`);
   table.body();
-  table.data().text(`Q791234`);
-  table.data().text(`CZH-4016`);
+  table.data().text(`Data 1`);
+  table.data().text(`Data 2`);
   table.editButton(1);
   table.archiveButton(1);
   
