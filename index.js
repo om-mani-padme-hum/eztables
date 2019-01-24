@@ -5,7 +5,10 @@ const ezobjects = require(`ezobjects`);
 /** Configure class */
 const configTable = {
   className: `Table`,
-  extends: ezhtml.Table
+  extends: ezhtml.Table,
+  properties: [
+    { name: `fields`, type: `array`, arrayOf: { type: `Field` } }
+  ]
 };
 
 /** Create class */
@@ -67,7 +70,7 @@ Table.prototype.deleteButton = function (val) {
   const anchor = new ezhtml.Anchor();
   
   /** Set anchor href to execute javascritp function deleteRow */
-  anchor.href(`javascript:deleteRow("${val}")`);
+  anchor.href(`javascript:location="edit?id=${val}";`);
   
   /** Create image */
   const image = new ezhtml.Image();
@@ -96,7 +99,7 @@ Table.prototype.editButton = function (val) {
   const anchor = new ezhtml.Anchor();
   
   /** Set anchor href to execute javascritp function editRow */
-  anchor.href(`javascript:editRow("${val}")`);
+  anchor.href(`javascript:location="edit?id=${val}";`);
   
   /** Create image */
   const image = new ezhtml.Image();
