@@ -19,7 +19,7 @@ td, th {
   text-align: left;
 }
 
-.edit-button, .delete-button {
+.edit-button, .archive-button {
   text-align: center;
   width: 24px;
 }

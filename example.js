@@ -18,7 +18,7 @@ app.get(`/`, (req, res) => {
   table.data().text(`Q791234`);
   table.data().text(`CZH-4016`);
   table.editButton(1);
-  table.deleteButton(1);
+  table.archiveButton(1);
   
   /** Render EJS template with our rendered form */
   const html = ejs.render(fs.readFileSync(`example.ejs`).toString(), { table: table.render(6) });

@@ -59,24 +59,24 @@ Table.prototype.data = function () {
   return tableData;
 };
 
-Table.prototype.deleteButton = function (val) {
+Table.prototype.archiveButton = function (val) {
   /** Create table data */
   const tableData = this.data();
   
-  /** Add delete button class */
-  tableData.addClass(`delete-button`);
+  /** Add archive button class */
+  tableData.addClass(`archive-button`);
   
   /** Create anchor */
   const anchor = new ezhtml.Anchor();
   
-  /** Set anchor href to execute javascritp function deleteRow */
-  anchor.href(`javascript:location="edit?id=${val}";`);
+  /** Set anchor href to execute javascritp function archiveRow */
+  anchor.href(`javascript:location="archive?id=${val}";`);
   
   /** Create image */
   const image = new ezhtml.Image();
   
   /** Set image src to edit image */
-  image.src(`/images/delete.png`);
+  image.src(`/images/archive.png`);
   
   /** Append image to anchor */
   anchor.append(image);
