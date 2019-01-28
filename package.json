@@ -1,6 +1,6 @@
 {
   "name": "eztables",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Easy HTML Tables Using Node.js",
   "main": "index.js",
   "scripts": {
