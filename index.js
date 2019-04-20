@@ -5,10 +5,7 @@ const ezobjects = require(`ezobjects`);
 /** Configure class */
 const configTable = {
   className: `Table`,
-  extends: ezhtml.Table,
-  properties: [
-    { name: `fields`, type: `array`, arrayOf: { type: `Field` } }
-  ]
+  extends: ezhtml.Table
 };
 
 /** Create class */
@@ -59,62 +56,15 @@ Table.prototype.data = function () {
   return tableData;
 };
 
-Table.prototype.archiveButton = function (val) {
-  /** Create table data */
-  const tableData = this.data();
+Table.prototype.footer = function () {
+  /** Create table footer */
+  const tableFooter = new ezhtml.TableFooter();
   
-  /** Add archive button class */
-  tableData.addClass(`archive-button`);
+  /** Add table head to table */
+  this.append(tableFooter);
   
-  /** Create anchor */
-  const anchor = new ezhtml.Anchor();
-  
-  /** Set anchor href to execute javascritp function archiveRow */
-  anchor.href(`javascript:location="archive?id=${val}";`);
-  
-  /** Create image */
-  const image = new ezhtml.Image();
-  
-  /** Set image src to edit image */
-  image.src(`/images/archive.png`);
-  
-  /** Append image to anchor */
-  anchor.append(image);
-  
-  /** Append anchor to table data */
-  tableData.append(anchor);
-  
-  /** Return table data for call chaining */
-  return tableData;
-};
-
-Table.prototype.editButton = function (val) {
-  /** Create table data */
-  const tableData = this.data();
-  
-  /** Add edit button class */
-  tableData.addClass(`edit-button`);
-  
-  /** Create anchor */
-  const anchor = new ezhtml.Anchor();
-  
-  /** Set anchor href to execute javascritp function editRow */
-  anchor.href(`javascript:location="edit?id=${val}";`);
-  
-  /** Create image */
-  const image = new ezhtml.Image();
-  
-  /** Set image src to edit image */
-  image.src(`/images/edit.png`);
-  
-  /** Append image to anchor */
-  anchor.append(image);
-  
-  /** Append anchor to table data */
-  tableData.append(anchor);
-  
-  /** Return table data for call chaining */
-  return tableData;
+  /** Return table head for call chaining */
+  return tableFooter;
 };
 
 Table.prototype.head = function () {

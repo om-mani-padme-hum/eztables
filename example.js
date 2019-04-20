@@ -1,8 +1,10 @@
 /** Require external modules */
 const ejs = require(`ejs`);
 const express = require(`express`);
+const ezhtml = require(`ezhtml`);
 const eztables = require(`./index`);
 const fs = require(`fs`);
+const octicons = require(`octicons`);
 
 const app = express();
 
@@ -10,16 +12,18 @@ app.get(`/`, (req, res) => {
   const table = new eztables.Table();
   
   table.head();
+  table.row();
   table.header().text(`Column 1`);
   table.header().text(`Column 2`);
   table.header().text(`&nbsp;`);
   table.header().text(`&nbsp;`);
   table.body();
+  table.row();
   table.data().text(`Data 1`);
   table.data().text(`Data 2`);
-  table.editButton(1);
-  table.archiveButton(1);
-  
+  table.data().style(`text-align: center;`).append(new ezhtml.Anchor().href(`edit?id=1`).text(octicons.pencil.toSVG({ width: 16 })));
+  table.data().style(`text-align: center;`).append(new ezhtml.Anchor().href(`delete?id=1`).text(octicons.trashcan.toSVG({ width: 16 })));
+                    
   /** Render EJS template with our rendered form */
   const html = ejs.render(fs.readFileSync(`example.ejs`).toString(), { table: table.render(6) });
   
