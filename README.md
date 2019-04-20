@@ -1,4 +1,4 @@
-# EZ Tables v1.0.1
+# EZ Tables v2.0.0
 
 This is a small module designed to provide rendering of HTML tables with a very simple API that can be used by itself or in compatible conjunction with other EZ HTML based modules.
 
@@ -61,6 +61,19 @@ app.listen(7000, () => {
   console.log(`Web server up and running on port 7000!`);
 });
 ```
+
+## Table Class
+
+The main component of EZ Tables is the Table class.  In most cases, the EZ Tables API allows everything to be driven from this class and there is no need to instansiate the individual table segments, rows, cells, etc, separately, although they certainly can be.
+
+* **Table.body()** - Append table body to table
+* **Table.data()** - Append table data cell to last table row
+* **Table.footer()** - Append table footer to table
+* **Table.head()** - Append table head to table
+* **Table.header()** - Append table header cell to last table row
+* **Table.row()** - Append table row to last table segment added, prioritizing footer, body, then header
+* See the documentation for [EZ HTML Elements and Container Elements](https://github.com/om-mani-padme-hum/ezhtml#method-signatures-common-to-all-elements) for all other methods that apply to this table
+* See elsewhere in the [EZ HTML](https://github.com/om-mani-padme-hum/ezhtml) documentation for all other methods available for table segments and cells, and note the methods can usually be chained together
 
 ## License
 

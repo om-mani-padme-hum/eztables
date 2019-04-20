@@ -1,0 +1,17 @@
+.eztable {
+  border-collapse: collapse;
+  width: 100%; }
+
+.eztable, .eztable th, .eztable td {
+  border: 1px solid grey; }
+
+.eztable th {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background-color: #446e9b; }
+
+.eztable td, .eztable th {
+  padding: 5px;
+  text-align: left; }
+
+/*# sourceMappingURL=eztables.css.map */

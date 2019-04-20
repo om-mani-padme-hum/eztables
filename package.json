@@ -4,7 +4,7 @@
   "description": "Easy HTML Tables Using Node.js",
   "main": "index.js",
   "scripts": {
-    "start": "node example.js",
+    "start": "./make.sh",
     "test": "eslint index.js"
   },
   "keywords": [

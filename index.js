@@ -6,7 +6,10 @@ const ezobjects = require(`ezobjects`);
 const configTable = {
   className: `Table`,
   extends: ezhtml.Table,
-  extendsConfig: ezhtml.configTable
+  extendsConfig: ezhtml.configTable,
+  properties: [
+    { name: `classes`, type: `string`, default: `eztable` }
+  ]
 };
 
 /** Create class */
@@ -26,7 +29,7 @@ Table.prototype.body = function () {
 Table.prototype.data = function () {
   /** Create table data */
   const tableData = new ezhtml.TableData();
-  
+    
   let lastContainer = null;
   
   /** Create helper method for finding last containe r*/
@@ -82,7 +85,7 @@ Table.prototype.head = function () {
 Table.prototype.header = function () {
   /** Create table header */
   const tableHeader = new ezhtml.TableHeader();
-  
+    
   let lastContainer = null;
   
   /** Create helper method for finding last containe r*/
