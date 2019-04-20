@@ -5,7 +5,8 @@ const ezobjects = require(`ezobjects`);
 /** Configure class */
 const configTable = {
   className: `Table`,
-  extends: ezhtml.Table
+  extends: ezhtml.Table,
+  extendsConfig: ezhtml.configTable
 };
 
 /** Create class */
@@ -147,4 +148,5 @@ Table.prototype.row = function () {
 };
 
 /** Export class from module */
+module.exports.configTable = configTable;
 module.exports.Table = Table;
