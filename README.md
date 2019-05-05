@@ -1,4 +1,4 @@
-# EZ Tables v2.0.0
+# EZ Tables v2.0.1
 
 This is a small module designed to provide rendering of HTML tables with a very simple API that can be used by itself or in compatible conjunction with other EZ HTML based modules.
 
